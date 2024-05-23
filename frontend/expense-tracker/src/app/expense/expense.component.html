@@ -1,0 +1,23 @@
+<div>
+    <h2>Expense Tracker</h2>
+  
+    <div>
+      <label>Date: <input [(ngModel)]="newExpense.date" placeholder="YYYY-MM-DD"></label>
+      <label>Description: <input [(ngModel)]="newExpense.description"></label>
+      <label>Amount: <input [(ngModel)]="newExpense.amount" type="number"></label>
+      <label>Category: <input [(ngModel)]="newExpense.category"></label>
+      <button (click)="addExpense()">Add Expense</button>
+    </div>
+  
+    <div>
+      <label>Search: <input [(ngModel)]="searchQuery" (input)="searchExpenses()"></label>
+    </div>
+  
+    <ul>
+      <li *ngFor="let expense of expenses">
+        {{ expense.date }} - {{ expense.description }} - {{ expense.amount }} - {{ expense.category }}
+        <button (click)="deleteExpense(expense.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  
